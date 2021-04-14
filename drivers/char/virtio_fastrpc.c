@@ -2235,7 +2235,7 @@ static void virt_fastrpc_remove(struct virtio_device *vdev)
 	free_pages((unsigned long)me->rbufs, me->order);
 }
 
-const struct virtio_device_id id_table[] = {
+const static struct virtio_device_id id_table[] = {
 	{ VIRTIO_ID_FASTRPC, VIRTIO_DEV_ANY_ID },
 	{ 0 },
 };

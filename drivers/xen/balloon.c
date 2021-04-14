@@ -375,7 +375,7 @@ static enum bp_state reserve_additional_memory(void)
 	return BP_ECANCELED;
 }
 
-static void xen_online_page(struct page *page)
+static int xen_online_page(struct page *page)
 {
 	__online_page_set_limits(page);
 
@@ -384,6 +384,8 @@ static void xen_online_page(struct page *page)
 	__balloon_append(page);
 
 	mutex_unlock(&balloon_mutex);
+
+	return 0;
 }
 
 static int xen_memory_notifier(struct notifier_block *nb, unsigned long val, void *v)

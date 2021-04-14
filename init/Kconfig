@@ -988,6 +988,8 @@ config SOCK_CGROUP_DATA
 	bool
 	default n
 
+source "kernel/Kconfig.iolimit"
+
 endif # CGROUPS
 
 config SCHED_CORE_CTL
